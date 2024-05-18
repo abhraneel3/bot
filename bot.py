@@ -70,12 +70,10 @@ async def fetch_and_send_data():
                 print(f"Sending messages to {channel_id}")
                 for article in data:
                     # Check if all required fields are present
-                    if all(key in article for key in ('Title', 'Updated On', 'Vacancies', "Avdt. No.", 'Last Date', 'Link')):
+                    if all(key in article for key in ('Title', 'Updated On', 'Last Date', 'Link')):
                         # Construct the message with fallback to "N/A" if any field is missing or empty
                         message = (
                             f"{random.choice(emojis)} {article.get('Title', 'N/A')}\n\n"
-                            f"👉 Vacancies: {article.get('Vacancies', 'N/A')}\n"
-                            f"👉 Avdt. No.: {article.get('Avdt. No.', 'N/A')}\n"
                             f"➡️ Publish Date: {article.get('Updated On', 'N/A')}\n"
                             f"⏱️ Last Date: {article.get('Last Date', 'N/A')}\n"
                             f"🔗 Apply Link: {article.get('Link', 'N/A')}\n\n"
