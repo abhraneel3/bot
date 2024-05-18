@@ -28,7 +28,7 @@ async def fetch_and_send_data():
             data.reverse()
             
             # Your Telegram Bot token
-            bot_token = "6741806828:AAFcSnSJlKgfnW5gWsE7bJEitHjejZYXSL0"
+            bot_token = os.environ.get('TOKEN')
             
             # List of your Telegram Channel IDs and their respective invitation links
             channels = [
