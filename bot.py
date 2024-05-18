@@ -11,8 +11,8 @@ async def send_message(bot, channel_id, message):
         print(f"Message sent to {channel_id}")
     except Exception as e:
         if "Flood control exceeded" in str(e):
-            print("Flood control exceeded. Retrying after 1 minute.")
-            await asyncio.sleep(60)  # Wait for 1 minute
+            print("Flood control exceeded. Retrying after 30 Sec.")
+            await asyncio.sleep(30)  # Wait for 30 Sec.
             await send_message(bot, channel_id, message)  # Retry sending the message
         else:
             print(f"Failed to send message to {channel_id}: {e}")
