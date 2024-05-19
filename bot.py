@@ -105,9 +105,10 @@ async def fetch_and_send_data():
 
                 # Send custom invitation message
                 invitation_message = (
-                    f"We Know You Find this Telegram Channel is Helpful. Join our channel for more Daily updates:\n\n"
-                    f"Click the link below to Follow Our Channel and We Recommend to You Please Share this Invitation Link with Your Friends, Who are Looking for Government Jobs:\n\n"
-                    f"👉 Click Here to Follow Us: {invite_link}"
+                    f"📢 Don't miss out on daily updates from our Telegram channel!\n\n"
+                    f"➡️ Join now for the latest government job opportunities and updates.\n\n"
+                    f"👉 Join us here:{id}: {invite_link}"\n\n
+                    f"🔗 Invite your friends who are seeking government jobs to join us too!"
                 )
                 await send_message(bot, channel_id, invitation_message)
         else:
