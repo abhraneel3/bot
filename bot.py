@@ -49,8 +49,8 @@ async def fetch_and_send_data():
             
             # List of your Telegram Channel IDs and their respective invitation links
             channels = [
-                {"id": "@govtjobsector", "invite_link": "https://t.me/+CjTSDbz1tCdhYjY1"},
-                {"id": "@government_job_hunter", "invite_link": "https://t.me/+_72f-aO66N8xNTc1"}
+                {"id": "@govtjobsector", "invite_link": "https://t.me/govtjobsector"},
+                {"id": "@government_job_hunter", "invite_link": "https://t.me/government_job_hunter"}
                 # Add more channels if needed
             ]
             
