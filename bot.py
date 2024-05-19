@@ -18,20 +18,19 @@ async def send_message(bot, channel_id, message):
         else:
             print(f"Failed to send message to {channel_id}: {e}")
 
-def is_yesterday(date_string):
+def is_today(date_string):
     try:
         # Convert the date string to a datetime object
         date = datetime.datetime.strptime(date_string, "%B %d, %Y")
         
-        # Calculate yesterday's date
-        yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
+        # Get today's date
+        today = datetime.datetime.now()
         
-        # Check if the date extracted from the date string is yesterday's date
-        return date.date() == yesterday.date()
+        # Check if the date extracted from the date string is today's date
+        return date.date() == today.date()
     except ValueError:
         # If the date string is invalid, return False
         return False
-
 
 async def fetch_and_send_data():
     try:
@@ -87,8 +86,8 @@ async def fetch_and_send_data():
                 for article in data:
                     # Check if all required fields are present
                     if all(key in article for key in ('Title', 'Updated On', 'Last Date', 'Link')):
-                        # Check if the last date is not yesterday
-                        if not is_yesterday(article['Last Date']):
+                        # Check if the update date is today
+                        if is_today(article['Updated On']):
                             # Construct and send the message
                             message = (
                                 f"{random.choice(emojis)} {article.get('Title', 'N/A')}\n\n"
@@ -107,7 +106,7 @@ async def fetch_and_send_data():
                 invitation_message = (
                     f"📢 Don't miss out on daily updates from our Telegram channel!\n\n"
                     f"➡️ Join now for the latest government job opportunities and updates.\n\n"
-                    f"👉 Join us here:{id}: {invite_link}.\n\n"
+                    f"👉 Join us here: {invite_link}.\n\n"
                     f"🔗 Invite your friends who are seeking government jobs to join us too!"
                 )
                 await send_message(bot, channel_id, invitation_message)
