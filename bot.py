@@ -3,6 +3,7 @@ import os
 import json
 import asyncio
 import random
+import datetime
 from telegram import Bot
 
 async def send_message(bot, channel_id, message):
@@ -16,6 +17,21 @@ async def send_message(bot, channel_id, message):
             await send_message(bot, channel_id, message)  # Retry sending the message
         else:
             print(f"Failed to send message to {channel_id}: {e}")
+
+def is_yesterday(date_string):
+    try:
+        # Convert the date string to a datetime object
+        date = datetime.datetime.strptime(date_string, "%B %d, %Y")
+        
+        # Calculate yesterday's date
+        yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
+        
+        # Check if the date extracted from the date string is yesterday's date
+        return date.date() == yesterday.date()
+    except ValueError:
+        # If the date string is invalid, return False
+        return False
+
 
 async def fetch_and_send_data():
     try:
@@ -71,19 +87,19 @@ async def fetch_and_send_data():
                 for article in data:
                     # Check if all required fields are present
                     if all(key in article for key in ('Title', 'Updated On', 'Last Date', 'Link')):
-                        # Construct the message with fallback to "N/A" if any field is missing or empty
-                        message = (
-                            f"{random.choice(emojis)} {article.get('Title', 'N/A')}\n\n"
-                            f"➡️ Publish Date: {article.get('Updated On', 'N/A')}\n"
-                            f"⏱️ Last Date: {article.get('Last Date', 'N/A')}\n"
-                            f"🔗 Apply Link: {article.get('Link', 'N/A')}\n\n"
-                            f"{random.choice(reactions)}"
-                        )
-                        
-                        await send_message(bot, channel_id, message)
-                        
-                        # Introduce a delay between messages
-                        await asyncio.sleep(1)  # Adjust the delay time as needed
+                        # Check if the last date is not yesterday
+                        if not is_yesterday(article['Last Date']):
+                            # Construct and send the message
+                            message = (
+                                f"{random.choice(emojis)} {article.get('Title', 'N/A')}\n\n"
+                                f"➡️ Publish Date: {article.get('Updated On', 'N/A')}\n"
+                                f"⏱️ Last Date: {article.get('Last Date', 'N/A')}\n"
+                                f"🔗 Apply Link: {article.get('Link', 'N/A')}\n\n"
+                                f"{random.choice(reactions)}"
+                            )
+                            await send_message(bot, channel_id, message)
+                            # Introduce a delay between messages
+                            await asyncio.sleep(1)  # Adjust the delay time as needed
                     else:
                         print("Skipping article as it is missing required fields")
 
