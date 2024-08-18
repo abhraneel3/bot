@@ -93,7 +93,9 @@ async def fetch_and_send_data():
                                 f"{random.choice(emojis)} {article.get('Title', 'N/A')}\n\n"
                                 f"➡️ Publish Date: {article.get('Updated On', 'N/A')}\n"
                                 f"⏱️ Last Date: {article.get('Last Date', 'N/A')}\n"
+                                f"⚠️ Don't wait! The deadline might change. Apply now based on your qualifications. \n"
                                 f"🔗 Apply Link: {article.get('Link', 'N/A')}\n\n"
+                                f" \n\n"
                                 f"{random.choice(reactions)}"
                             )
                             await send_message(bot, channel_id, message)
