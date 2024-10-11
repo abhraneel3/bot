@@ -2,10 +2,10 @@ name: Run bot.py Python script
 
 on:
   schedule:
-  - cron: '30 7 * * *'   # 01:00 PM IST (07:30 AM UTC)
-  - cron: '00 11 * * *'  # 04:30 PM IST (11:00 AM UTC)
-  - cron: '00 15 * * *'  # 08:30 PM IST (03:00 PM UTC)
-  - cron: '00 17 * * *'  # 10:30 PM IST (05:00 PM UTC)
+    - cron: '47 6 * * *'   # 12:17 PM IST (06:47 AM UTC)
+    - cron: '25 10 * * *'  # 03:55 PM IST (10:25 AM UTC)
+    - cron: '55 13 * * *'  # 07:25 PM IST (01:55 PM UTC)
+    - cron: '25 16 * * *'  # 09:55 PM IST (04:25 PM UTC)
   workflow_dispatch:  # Allow manual triggering of the workflow
 
 jobs:
