@@ -2,7 +2,7 @@ name: Run bot.py Python script
 
 on:
   schedule:
-    - cron: '47 6 * * *'   # 12:17 PM IST (06:47 AM UTC)
+    - cron: '47 6 * * *'   # 12:37 PM IST (06:47 AM UTC)
     - cron: '25 10 * * *'  # 03:55 PM IST (10:25 AM UTC)
     - cron: '55 13 * * *'  # 07:25 PM IST (01:55 PM UTC)
     - cron: '25 16 * * *'  # 09:55 PM IST (04:25 PM UTC)
