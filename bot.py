@@ -58,25 +58,6 @@ async def fetch_and_send_data():
             
             # Emojis and reactions for posts
             emojis = ["💼", "📝", "👩‍💼", "👨‍💼", "💻", "📅", "🏢", "👉", "🔍", "✅", "➡️"]
-            reactions = [
-                "Great opportunity!", 
-                "Thanks for sharing!", 
-                "Good luck to all applicants!", 
-                "Keep up the good work!", 
-                "Appreciate the update!",
-                "Exciting news for job seekers!",
-                "Impressive job listing!",
-                "Valuable resource for job hunters!",
-                "Excellent addition to the channel!",
-                "Fantastic opportunity for career growth!",
-                "Well done on the job notification!",
-                "This will benefit many job seekers!",
-                "Superb update for the community!",
-                "A must-see for professionals!",
-                "Incredible job opening!",
-                "Top-notch job listing!",
-                "A gem for those seeking employment!"
-            ]
             
             # Sending messages to each Telegram channel
             for channel in channels:
@@ -95,8 +76,7 @@ async def fetch_and_send_data():
                                 f"👉 Location: {article.get('Location', 'Pan India')}\n"
                                 f"⚠️ {article.get('Summary', 'N/A')}\n"
                                 f" \n\n"
-                                f"#job #career #governmentjobs #sarkarinaukri #sarkarijob \n"
-                                f"{random.choice(reactions)}"
+                                f"#job #career #governmentjobs #sarkarinaukri #sarkarijob"
                             )
                             await send_message(bot, channel_id, message)
                             # Introduce a delay between messages
