@@ -92,6 +92,7 @@ async def fetch_and_send_data():
                             message = (
                                 f"{random.choice(emojis)} {article.get('Title', 'N/A')}\n\n"
                                 f"➡️ Publish Date: {article.get('Updated On', 'N/A')}\n"
+                                f"👉 Location: {article.get('Location', 'Pan India')}\n"
                                 f"⚠️ {article.get('Summary', 'N/A')}\n"
                                 f" \n\n"
                                 f"#job #career #governmentjobs #sarkarinaukri #sarkarijob \n"
