@@ -92,10 +92,9 @@ async def fetch_and_send_data():
                             message = (
                                 f"{random.choice(emojis)} {article.get('Title', 'N/A')}\n\n"
                                 f"➡️ Publish Date: {article.get('Updated On', 'N/A')}\n"
-                                f"⏱️ Last Date: {article.get('Last Date', 'Not Mentioned')}\n"
                                 f"⚠️ {article.get('Summary', 'N/A')}\n"
-                                f"🔗 Apply Link: {article.get('Link', 'Not Mentioned')}\n\n"
                                 f" \n\n"
+                                f"#job #career #governmentjobs #sarkarinaukri #sarkarijob \n"
                                 f"{random.choice(reactions)}"
                             )
                             await send_message(bot, channel_id, message)
