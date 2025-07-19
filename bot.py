@@ -35,7 +35,7 @@ def is_today(date_string):
 async def fetch_and_send_data():
     try:
         # Fetching JSON data from the GitHub link
-        response = requests.get("https://raw.githubusercontent.com/soumyadeb-git/Fetch-Py/main/data/merged_data.json")
+        response = requests.get("https://raw.githubusercontent.com/soumyadeb-git/Fetch-Py/main/data/data2.json")
         
         if response.status_code == 200:
             data = json.loads(response.text)
